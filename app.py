@@ -1,12 +1,14 @@
-from flask import Flask, Response
+from flask import Flask, Response, render_template_string
 import feedparser
 from bs4 import BeautifulSoup
 import schedule
 import time
 import threading
+from datetime import datetime
 
 app = Flask(__name__)
 new_entries = []
+last_updated = None  # Переменная для хранения времени последнего обновления
 
 def process_rss_feed(url):
     feed = feedparser.parse(url)
@@ -46,9 +48,18 @@ def process_rss_feed(url):
     return processed_items
 
 def update_rss_feed():
-    global new_entries
+    global new_entries, last_updated
     url = 'http://example.com/rss'  # Замените на ваш RSS URL
     new_entries = process_rss_feed(url)
+    last_updated = datetime.now()  # Обновляем время последнего изменения
+
+@app.route('/')
+def home():
+    return render_template_string('''
+        <h1>Главная страница</h1>
+        <p>Время последнего обновления: {{ last_updated }}</p>
+        <p><a href="/rss">Ссылка на RSS поток</a></p>
+    ''', last_updated=last_updated)
 
 @app.route('/rss')
 def rss_feed():
