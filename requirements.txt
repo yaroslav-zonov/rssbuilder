@@ -1,4 +1,4 @@
-   flask==2.0.1
-   requests==2.25.1
-   # добавьте другие зависимости вашего проекта
-   
+Flask==2.0.1
+feedparser==6.0.8
+schedule==1.1.0
+beautifulsoup4==4.10.0
