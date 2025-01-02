@@ -2,7 +2,7 @@ name: Run RSS Processor
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # Запускать каждые 30 минут
+    - cron: '*/5 * * * *'  # Запускать каждые 30 минут
 
 jobs:
   build:
