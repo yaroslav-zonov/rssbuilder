@@ -50,7 +50,7 @@ def generate_modified_rss(processed_items):
     rss_content += '<rss version="2.0">\n'
     rss_content += '<channel>\n'
     rss_content += '<title>Translation DB</title>\n'
-    rss_content += '<link>http://example.com/modified_feed</link>\n'
+    rss_content += '<link>https://github.com/yaroslav-zonov/rssbuilder/blob/d240c426f4e8b5b8f13e523c4db2329d3ab5cf53/cbdbrss.xml/</link>\n'
     rss_content += '<description>База переводов комиксов.</description>\n'
 
     for item in processed_items:
