@@ -7,7 +7,7 @@ WORKDIR /app
 # Скопируйте файлы в контейнер
 COPY . .
 
-# Установите зависимости (если у вас есть requirements.txt)
+# Установите зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Укажите команду для запуска вашего приложения
